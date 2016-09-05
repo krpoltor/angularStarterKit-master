@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <body>
-<section>
-    <h2>Hello from Dialog A!</h2>
+    <section>
+        <h2>Hello from Dialog A!  </h2>
+    </section>
 
-</section>
+    <div=ng-controller="MyFirstController">
 
+        <table class="table table-hover">
+            <tr ng-repeat="book in books">
+                <td ng-bind="book.title"></td>
+                <td ng-bind="book.author" </td>
+            </tr>
+        </table>
+        </div>
 </body>
+
 </html>
