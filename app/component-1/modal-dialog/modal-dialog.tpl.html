@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
 </head>
+
 <body>
-<div class="modal-content">
-    <div class="modal-header">
-        <h3 class="modal-title">I'm a modal!</h3>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title">Book properties</h3>
+        </div>
+        <div class="modal-body">
+            <form name="data.form">
+                <p>Title:</p>
+                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookTitle.$invalid}">
+                    <input name="bookTitle" class="form-control" data-ng-required="true" type="text" data-ng-model="data.selectedBook.title" />
+                </div>
+                <p/>
+                <p>Author:</p>
+                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookAuthor.$invalid}">
+                    <input name="bookAuthor" class="form-control" data-ng-required="true" type="text" data-ng-model="data.selectedBook.author" />
+                </div>
+                <p/>
+                <p>Genre:</p>
+                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookGenre.$invalid}">
+                    <input name="bookGenre" class="form-control" data-ng-required="true" type="text" data-ng-model="data.selectedBook.genre" />
+                </div>
+                <p/>
+                <p>Year:</p>
+                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookYear.$invalid}">
+                    <input name="bookYear" class="form-control" data-ng-required="true" type="text" data-ng-model="data.selectedBook.year" />
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer ">
+            <button class="btn btn-primary" data-ng-click="save()">Save</button>
+            <button class="btn btn-primary" data-ng-click="exit()">Exit</button>
+        </div>
     </div>
-    <div class="modal-body">
-            <p>Title: {{data.selectedBook.title}}</p>
-    </div>
-    <div class="modal-footer ">
-        <button class="btn btn-primary" data-ng-click="ok()">OK</button>
-    </div>
-</div>
 </body>
+
 </html>

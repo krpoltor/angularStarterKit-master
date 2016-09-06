@@ -15,6 +15,7 @@
         "angular-spinner": "~0.5.1",
         "trNgGrid": "~3.0.3",
         "sockjs-client": "~0.3.4",
+        "angular-ui-bootstrap-bower": "0.14.0",
         "stomp-websocket": "~2.3.3"
     },
     "devDependencies": {
