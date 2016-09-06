@@ -11,3 +11,5 @@ angular.module('app.component1', ['ngRoute','app.component1.templates'])
             }
         });
     });
+
+
