@@ -38,5 +38,21 @@
         "year": 2001,
         "title": "Wzorce projektowe",
         "author": "Erich Gamma, Ralph Johnson, Richard Helm, John Vlissides"
+    },
+    {
+        "id": 6,
+        "version": 0,
+        "genre": "test",
+        "year": 2001,
+        "title": "Lorem ipsum",
+        "author": "Erich ipsum, Ralph Lorem"
+    },
+    {
+        "id": 6,
+        "version": 0,
+        "genre": "crime",
+        "year": 2081,
+        "title": "Crime crime",
+        "author": "Crime 42 crime never changes."
     }
 ]

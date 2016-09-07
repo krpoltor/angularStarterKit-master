@@ -1,11 +1,29 @@
-angular.module('app.component1').controller('MyFirstController', function($scope, $http, $modal, books) {
+angular.module('app.component1').factory('BooksFactory', function($http) {
+  'use strict';
+
+  var books = {};
+
+ books.getBooks = function() {
+        return $http.get('/component-1/books.json');
+ };
+
+return books;
+
+}).controller('MyFirstController', function($scope, $http, $modal, BooksFactory) {
     'use strict';
 
     $scope.data = {
-        books: []
+      books: []
     };
 
-    angular.copy(books.data, $scope.data.books);
+    $scope.data.books = BooksFactory.getBooks();
+
+    BooksFactory.getBooks().success(function(response){
+      $scope.data.books = response;
+    });
+
+    //
+    // angular.copy(books.data, $scope.data.books);
 
     $scope.add = function() {
         $modal.open({
@@ -142,12 +160,4 @@ angular.module('app.component1').controller('MyFirstController', function($scope
     $scope.status = {
         opened: false
     };
-}).factory('BooksFactory', function($scope, books){
-  'use strict';
-
-  angular.copy(books.data, $scope.data.books);
-
-  return books;
-
-
 });
