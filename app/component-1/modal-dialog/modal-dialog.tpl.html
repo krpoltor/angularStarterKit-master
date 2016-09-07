@@ -25,12 +25,39 @@
                 <p/>
                 <p>Genre:</p>
                 <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookGenre.$invalid}">
-                    <input name="bookGenre" class="form-control" data-ng-required="true" type="text" data-ng-model="data.selectedBook.genre" />
+                    <input name="bookGenre" class="form-control" data-ng-required="false" type="text" data-ng-model="data.selectedBook.genre" />
                 </div>
-                <p/>
-                <p>Year:</p>
-                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookYear.$invalid}">
-                    <input name="bookYear" class="form-control" data-ng-required="true" type="text" data-ng-model="data.selectedBook.year" />
+                <div>
+                    <style>
+                        .full button span {
+                            background-color: limegreen;
+                            border-radius: 32px;
+                            color: black;
+                        }
+
+                        .partially button span {
+                            background-color: orange;
+                            border-radius: 32px;
+                            color: black;
+                        }
+                    </style>
+                    <div data-ng-controller="DatepickerDemoCtrl">
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p/> Year:
+                                <p class="input-group">
+                                    <input name="bookYear" type="text" class="form-control" init-Date= "data.selectedBook.year" uib-datepicker-popup="{{format}}" data-ng-model="dt"
+                                    is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" data-ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                  </button>
+                </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>

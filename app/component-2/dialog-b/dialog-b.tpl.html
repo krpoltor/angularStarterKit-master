@@ -2,5 +2,23 @@
 <html>
 <body>
 <!-- process:include component-2/dialog-b/dialog-b-inner.html --><!-- /process -->
+
+<table class="table table-hover">
+    <thead>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Year</th>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="book in data.books">
+            <td data-ng-bind="book.title"></td>
+            <td data-ng-bind="book.author"></td>
+            <td data-ng-bind="book.genre"></td>
+            <td data-ng-bind="book.year"></td>
+        </tr>
+    </tbody>
+</table>
+
 </body>
 </html>
