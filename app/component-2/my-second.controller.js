@@ -1,4 +1,5 @@
-angular.module('app.component2').controller('MySecondController', ['$scope', 'BooksFactory', function($scope, BooksFactory) {
+angular.module('app.component2')
+.controller('MySecondController', ['$scope', 'BooksFactory', function($scope, BooksFactory) {
     'use strict';
 
     $scope.data = {
