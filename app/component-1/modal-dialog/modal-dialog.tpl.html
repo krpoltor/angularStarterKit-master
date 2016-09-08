@@ -24,7 +24,7 @@
                 </div>
                 <p/>
                 <p>Genre:</p>
-                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookGenre.$invalid}">
+                <div class="form-group">
                     <input name="bookGenre" class="form-control" data-ng-required="false" type="text" data-ng-model="data.selectedBook.genre" />
                 </div>
                 <div>
@@ -47,8 +47,8 @@
                             <div class="col-md-6">
                                 <p/> Year:
                                 <p class="input-group">
-                                    <input name="bookYear" type="text" class="form-control" init-Date= "data.selectedBook.year" uib-datepicker-popup="{{format}}" data-ng-model="dt"
-                                    is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" data-ng-required="true" close-text="Close" />
+                                    <input name="bookYear" type="text" class="form-control" uib-datepicker-popup="{{format}}" data-ng-model="dt" onkeypress="return event.charCode >= 48 && event.charCode <= 57" is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                                        data-ng-required="true" close-text="Close" />
                                     <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="open($event)">
                     <i class="glyphicon glyphicon-calendar"></i>

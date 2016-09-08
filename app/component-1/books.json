@@ -54,5 +54,21 @@
         "year": 2081,
         "title": "Crime crime",
         "author": "Crime 42 crime never changes."
+    },
+    {
+        "id": 7,
+        "version": 0,
+        "genre": "bork",
+        "year": 2081,
+        "title": "Bork bork - bork!",
+        "author": "Bork Pork, Borke D. Gork."
+    },
+    {
+        "id": 8,
+        "version": 0,
+        "genre": "bork",
+        "year": 2121,
+        "title": "Bork bork 1984 bork.",
+        "author": "George Bork Bork, Bork B. Bork."
     }
 ]

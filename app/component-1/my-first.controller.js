@@ -1,25 +1,25 @@
-angular.module('app.component1').factory('BooksFactory', function($http) {
-  'use strict';
+angular.module('app.component1').factory('BooksFactory', ['$http', function($http) {
+    'use strict';
 
-  var books = {};
+    var books = {};
 
- books.getBooks = function() {
+    books.getBooks = function() {
         return $http.get('/component-1/books.json');
- };
+    };
 
-return books;
+    return books;
 
-}).controller('MyFirstController', function($scope, $http, $modal, BooksFactory) {
+}]).controller('MyFirstController', function($scope, $http, $modal, BooksFactory) {
     'use strict';
 
     $scope.data = {
-      books: []
+        books: []
     };
 
     $scope.data.books = BooksFactory.getBooks();
 
-    BooksFactory.getBooks().success(function(response){
-      $scope.data.books = response;
+    BooksFactory.getBooks().success(function(response) {
+        $scope.data.books = response;
     });
 
     //
@@ -52,7 +52,7 @@ return books;
         $scope.selectedRowIndex = index;
     };
 
-}).controller('AddModalController', function($scope, $modalInstance, $http) {
+}).controller('AddModalController', ['$scope', '$modalInstance', '$http', function($scope, $modalInstance, $http) {
     'use strict';
 
     var book = {
@@ -81,14 +81,19 @@ return books;
                 method: 'POST',
                 url: '/books',
                 data: book
-            }).then(function successCallback(response) {alert('SUCCEED');}, function errorCallback(response) {alert('FAILED');});
-        }};
+            }).then(function successCallback(response) {
+                alert('SUCCEED' + response.status);
+            }, function errorCallback(response) {
+                alert('FAILED' + response.status + '\n' + book.title + '\n' + book.author + '\n' + book.genre + '\n' + book.year);
+            });
+        }
+    };
 
     $scope.exit = function() {
         $modalInstance.close();
     };
 
-}).controller('EditModalController', function($scope, $modalInstance, $http, selectedBook) {
+}]).controller('EditModalController', ['$scope', '$modalInstance', '$http', 'selectedBook', function($scope, $modalInstance, $http, selectedBook) {
     'use strict';
 
     var book = {
@@ -106,35 +111,40 @@ return books;
     angular.copy(selectedBook, $scope.data.selectedBook);
 
     $scope.save = function() {
-      if (!$scope.data.form.bookTitle.$invalid &&
-          !$scope.data.form.bookAuthor.$invalid &&
-          !$scope.data.form.bookGenre.$invalid &&
-          !$scope.data.form.bookYear.$invalid) {
+        if (!$scope.data.form.bookTitle.$invalid &&
+            !$scope.data.form.bookAuthor.$invalid &&
+            !$scope.data.form.bookGenre.$invalid &&
+            !$scope.data.form.bookYear.$invalid) {
 
-          book.title = $scope.data.form.bookTitle.$modelValue;
-          book.author = $scope.data.form.bookAuthor.$modelValue;
-          book.genre = $scope.data.form.bookGenre.$modelValue;
-          book.year = $scope.data.form.bookYear.$modelValue;
+            book.title = $scope.data.form.bookTitle.$modelValue;
+            book.author = $scope.data.form.bookAuthor.$modelValue;
+            book.genre = $scope.data.form.bookGenre.$modelValue;
+            book.year = $scope.data.form.bookYear.$modelValue;
 
-          $http({
-              method: 'PUT',
-              url: '/books',
-              data: book
-          }).then(function successCallback(response) {alert('SUCCEED');}, function errorCallback(response) {alert('FAILED');});
-      }};
+            $http({
+                method: 'PUT',
+                url: '/books',
+                data: book
+            }).then(function successCallback(response) {
+                alert('SUCCEED' + response.status);
+            }, function errorCallback(response) {
+                alert('FAILED' + response.status + '\n' + book.title + '\n' + book.author + '\n' + book.genre + '\n' + book.year);
+            });
+        }
+    };
 
     $scope.exit = function() {
         $modalInstance.close();
     };
 
-}).controller('DatepickerDemoCtrl', function($scope) {
+}]).controller('DatepickerDemoCtrl', ['$scope', function($scope) {
     'use strict';
 
     $scope.today = function() {
-        $scope.dt = new Date();
+        $scope.dt = new Date($scope.data.selectedBook.year);
     };
 
-    $scope.today();
+    // $scope.today();
 
     $scope.clear = function() {
         $scope.dt = null;
@@ -160,4 +170,4 @@ return books;
     $scope.status = {
         opened: false
     };
-});
+}]);
