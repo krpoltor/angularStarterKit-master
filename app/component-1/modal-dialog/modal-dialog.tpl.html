@@ -13,7 +13,7 @@
         </div>
         <div class="modal-body">
             <form name="data.form">
-                <p>Title:</p>
+                <p><b>Title:</b></p>
                 <div class="form-group"
                      data-ng-class="{'has-error bg-danger': data.form.bookTitle.$invalid}">
                     <input name="bookTitle"
@@ -23,7 +23,7 @@
                          data-ng-model="data.book.title" />
                 </div>
                 <p/>
-                <p>Author:</p>
+                <p><b>Author:</b></p>
                 <div class="form-group"
                      data-ng-class="{'has-error bg-danger': data.form.bookAuthor.$invalid}">
                     <input name="bookAuthor"
@@ -56,30 +56,25 @@
                         }
                     </style>
                     <div data-ng-controller="DatepickerDemoCtrl">
-                        <hr />
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p/> Year:
-                                <p class="input-group">
-                                    <input name="bookYear"
-                                         type="text"
-                                         class="form-control"
-                                         uib-datepicker-popup="{{format}}"
-                                         data-ng-model="data.book.year"
-                                         onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                                         is-open="status.opened"
-                                         datepicker-options="dateOptions"
-                                         date-disabled="disabled(date, mode)"
-                                         data-ng-required="true"
-                                         close-text="Close" />
-                                    <span class="input-group-btn">
+                        <p/> Year:<p/>
+                        <p class="input-group">
+                            <input name="bookYear"
+                                 type="text"
+                                 class="form-control"
+                                 uib-datepicker-popup="{{format}}"
+                                 data-ng-model="data.book.year"
+                                 onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                 is-open="status.opened"
+                                 datepicker-options="dateOptions"
+                                 date-disabled="disabled(date, mode)"
+                                 data-ng-required="true"
+                                 close-text="Close" />
+                            <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="open($event)">
                     <i class="glyphicon glyphicon-calendar"></i>
                   </button>
                 </span>
-                                </p>
-                            </div>
-                        </div>
+                        </p>
                     </div>
                 </div>
             </form>
