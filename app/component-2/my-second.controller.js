@@ -26,6 +26,9 @@ angular.module('app.component2')
     }, {
         title: 'Bork',
         content: 'bork'
+    }, {
+        title: 'Foo',
+        content: 'foo'
     }];
 
     $scope.active = function() {

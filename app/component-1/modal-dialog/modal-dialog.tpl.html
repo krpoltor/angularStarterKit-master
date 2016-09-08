@@ -14,18 +14,32 @@
         <div class="modal-body">
             <form name="data.form">
                 <p>Title:</p>
-                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookTitle.$invalid}">
-                    <input name="bookTitle" class="form-control" data-ng-required="true" type="text" data-ng-model="data.book.title" />
+                <div class="form-group"
+                     data-ng-class="{'has-error bg-danger': data.form.bookTitle.$invalid}">
+                    <input name="bookTitle"
+                         class="form-control"
+                         data-ng-required="true"
+                         type="text"
+                         data-ng-model="data.book.title" />
                 </div>
                 <p/>
                 <p>Author:</p>
-                <div class="form-group" data-ng-class="{'has-error bg-danger': data.form.bookAuthor.$invalid}">
-                    <input name="bookAuthor" class="form-control" data-ng-required="true" type="text" data-ng-model="data.book.author" />
+                <div class="form-group"
+                     data-ng-class="{'has-error bg-danger': data.form.bookAuthor.$invalid}">
+                    <input name="bookAuthor"
+                         class="form-control"
+                         data-ng-required="true"
+                         type="text"
+                         data-ng-model="data.book.author" />
                 </div>
                 <p/>
                 <p>Genre:</p>
                 <div class="form-group">
-                    <input name="bookGenre" class="form-control" data-ng-required="false" type="text" data-ng-model="data.book.genre" />
+                    <input name="bookGenre"
+                         class="form-control"
+                         data-ng-required="false"
+                         type="text"
+                         data-ng-model="data.book.genre" />
                 </div>
                 <div>
                     <style>
@@ -47,8 +61,17 @@
                             <div class="col-md-6">
                                 <p/> Year:
                                 <p class="input-group">
-                                    <input name="bookYear" type="text" class="form-control" uib-datepicker-popup="{{format}}" data-ng-model="data.book.year" onkeypress="return event.charCode >= 48 && event.charCode <= 57" is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
-                                        data-ng-required="true" close-text="Close" />
+                                    <input name="bookYear"
+                                         type="text"
+                                         class="form-control"
+                                         uib-datepicker-popup="{{format}}"
+                                         data-ng-model="data.book.year"
+                                         onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                         is-open="status.opened"
+                                         datepicker-options="dateOptions"
+                                         date-disabled="disabled(date, mode)"
+                                         data-ng-required="true"
+                                         close-text="Close" />
                                     <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="open($event)">
                     <i class="glyphicon glyphicon-calendar"></i>
@@ -63,10 +86,13 @@
         </div>
 
         <div class="modal-footer ">
-            <button class="btn btn-success" data-ng-click="save()">
+            <button class="btn btn-success"
+                 data-ng-click="save()"
+                 data-ng-disabled="data.form.bookTitle.$invalid || data.form.bookAuthor.$invalid || data.form.bookGenre.$invalid || data.form.bookYear.$invalid">
               <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
               Save</button>
-            <button class="btn btn-danger" data-ng-click="exit()">
+            <button class="btn btn-danger"
+                 data-ng-click="exit()">
               <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span>
               Exit</button>
         </div>
