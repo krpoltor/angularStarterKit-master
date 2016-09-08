@@ -47,14 +47,7 @@
                             <div class="col-md-6">
                                 <p/> Year:
                                 <p class="input-group">
-                                    <input name="bookYear" type="text"
-                                    class="form-control"
-                                    uib-datepicker-popup="{{format}}"
-                                     data-ng-model="data.book.year"
-                                     onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                                      is-open="status.opened"
-                                      datepicker-options="dateOptions"
-                                      date-disabled="disabled(date, mode)"
+                                    <input name="bookYear" type="text" class="form-control" uib-datepicker-popup="{{format}}" data-ng-model="data.book.year" onkeypress="return event.charCode >= 48 && event.charCode <= 57" is-open="status.opened" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
                                         data-ng-required="true" close-text="Close" />
                                     <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="open($event)">
@@ -70,8 +63,12 @@
         </div>
 
         <div class="modal-footer ">
-            <button class="btn btn-primary" data-ng-click="save()">Save</button>
-            <button class="btn btn-primary" data-ng-click="exit()">Exit</button>
+            <button class="btn btn-success" data-ng-click="save()">
+              <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+              Save</button>
+            <button class="btn btn-danger" data-ng-click="exit()">
+              <span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span>
+              Exit</button>
         </div>
     </div>
 </body>
