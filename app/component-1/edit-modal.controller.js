@@ -1,5 +1,5 @@
 angular.module('app.component1')
-    .controller('EditModalController', ['$scope', '$modalInstance', '$http', 'selectedBook', function($scope, $modalInstance, $http, selectedBook) {
+    .controller('EditModalController', ['$scope', '$modalInstance', 'selectedBook', 'CrudService', 'VerifyService', function($scope, $modalInstance, selectedBook, CrudService, VerifyService) {
         'use strict';
 
         var book = {
@@ -17,25 +17,19 @@ angular.module('app.component1')
         angular.copy(selectedBook, $scope.data.book);
 
         $scope.save = function() {
-            if (!$scope.data.form.bookTitle.$invalid &&
-                !$scope.data.form.bookAuthor.$invalid &&
-                !$scope.data.form.bookGenre.$invalid &&
-                !$scope.data.form.bookYear.$invalid) {
+            if (VerifyService.verify(
+                    $scope.data.form.bookTitle.$modelValue,
+                    $scope.data.form.bookAuthor.$modelValue,
+                    $scope.data.form.bookYear.$modelValue)) {
 
                 book.title = $scope.data.form.bookTitle.$modelValue;
                 book.author = $scope.data.form.bookAuthor.$modelValue;
                 book.genre = $scope.data.form.bookGenre.$modelValue;
                 book.year = $scope.data.form.bookYear.$modelValue;
 
-                $http({
-                    method: 'PUT',
-                    url: '/books',
-                    data: book
-                }).then(function successCallback(response) {
-                    alert('SUCCEED' + response.status);
-                }, function errorCallback(response) {
-                    alert('FAILED' + response.status + '\n' + book.title + '\n' + book.author + '\n' + book.genre + '\n' + book.year);
-                });
+                CrudService.put(book);
+            } else {
+                alert('Fill all neccessary fields.');
             }
         };
 

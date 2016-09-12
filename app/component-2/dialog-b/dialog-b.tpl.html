@@ -10,6 +10,8 @@
         <uib-tabset active="activeForm">
             <uib-tab ng-repeat="pane in panes"
                  heading="{{pane.title}}"
+                 class = "uibTabElem"
+                 name = "{{pane.title}}"
                  active="pane.active">
             </uib-tab>
         </uib-tabset>
