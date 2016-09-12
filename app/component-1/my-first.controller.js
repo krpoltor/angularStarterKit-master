@@ -1,9 +1,11 @@
 angular.module('app.component1')
-    .controller('MyFirstController', function($scope, $http, $modal, BooksFactory) {
+    .controller('MyFirstController', function($scope, $http, $modal, BooksFactory, AddModalService, EditModalService, VerifyService) {
         'use strict';
 
         $scope.data = {
-            books: []
+            books: [],
+            book: [],
+            form: {}
         };
 
         //  $scope.data.books = BooksFactory.getBooks();
@@ -13,28 +15,66 @@ angular.module('app.component1')
         });
 
         $scope.add = function() {
-            $modal.open({
+            $scope.modalInstance = $modal.open({
                 templateUrl: '/component-1/modal-dialog/modal-dialog.tpl.html',
-                controller: 'AddModalController',
+                //controller: 'AddModalController',
                 size: 'lg'
             });
         };
 
+        $scope.save = function() {
+
+            if (VerifyService.verify(
+                    $scope.data.form.bookTitle.$modelValue,
+                    $scope.data.form.bookAuthor.$modelValue,
+                    $scope.data.form.bookGenre.$modelValue,
+                    $scope.data.form.bookYear.$modelValue)) {
+
+                // if (typeof $scope.selectedBook == 'undefined') {
+                //
+                //     AddModalService.save(
+                //         $scope.data.form.bookTitle.$modelValue,
+                //         $scope.data.form.bookAuthor.$modelValue,
+                //         $scope.data.form.bookGenre.$modelValue,
+                //         $scope.data.form.bookYear.$modelValue);
+                // } else {
+                //     EditModalService.save($scope.data.form.bookTitle.$modelValue,
+                //         $scope.data.form.bookAuthor.$modelValue,
+                //         $scope.data.form.bookGenre.$modelValue,
+                //         $scope.data.form.bookYear.$modelValue);
+                // }
+
+                $scope.data.book.title = '';
+                $scope.data.book.author = '';
+                $scope.data.book.genre = '';
+                $scope.data.book.year = '';
+                //$scope.data.form.$setPristine();
+
+            } else {
+                alert('Fill all neccessary fields.');
+            }
+        };
+
+        //
+
         $scope.edit = function() {
-            $modal.open({
+            $scope.modalInstance = $modal.open({
                 templateUrl: '/component-1/modal-dialog/modal-dialog.tpl.html',
-                controller: 'EditModalController',
-                size: 'lg',
-                resolve: {
-                    selectedBook: function() {
-                        return $scope.data.books[$scope.selectedRowIndex];
-                    }
-                }
+                size: 'lg'
+                // resolve: {
+                //     selectedBook: function() {
+                //         return $scope.data.books[$scope.selectedRowIndex];
+                //     }
+                // }
             });
         };
 
         $scope.selectRow = function(index) {
             $scope.selectedRowIndex = index;
+        };
+
+        $scope.exit = function() {
+            $scope.modalInstance.dismiss();
         };
 
     });

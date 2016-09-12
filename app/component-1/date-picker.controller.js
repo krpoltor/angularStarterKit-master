@@ -3,12 +3,12 @@ angular.module('app.component1')
         'use strict';
 
         $scope.today = function() {
-            if ($scope.data.book.year === '') {
-                $scope.data.book.year = new Date();
+            if ($scope.data.form.bookYear === '') {
+                $scope.data.form.bookYear = new Date();
             }
         };
 
-        $scope.data.book.year = new Date().setFullYear($scope.data.book.year);
+        $scope.data.form.bookYear = new Date().setFullYear($scope.data.form.bookYear);
 
         $scope.today();
 
@@ -18,7 +18,7 @@ angular.module('app.component1')
 
         $scope.setDate = function(year) {
             $scope.date = new Date(year);
-            $scope.data.book.year = $scope.date.getFullYear();
+            $scope.data.form.bookYear = $scope.date.getFullYear();
         };
 
         $scope.dateOptions = {
