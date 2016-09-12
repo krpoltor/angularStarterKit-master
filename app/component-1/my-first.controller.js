@@ -6,7 +6,7 @@ angular.module('app.component1')
             books: []
         };
 
-        $scope.data.books = BooksFactory.getBooks();
+        //  $scope.data.books = BooksFactory.getBooks();
 
         BooksFactory.getBooks().success(function(response) {
             $scope.data.books = response;

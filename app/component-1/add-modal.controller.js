@@ -2,6 +2,8 @@ angular.module('app.component1')
     .controller('AddModalController', ['$scope', '$modalInstance', '$http', function($scope, $modalInstance, $http) {
         'use strict';
 
+        
+
         var book = {
             title: '',
             author: '',
