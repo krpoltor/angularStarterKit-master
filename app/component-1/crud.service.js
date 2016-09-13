@@ -24,6 +24,6 @@ angular.module('app.component1')
             }, function errorCallback(response) {
                 alert('FAILED ' + response.status + '\n Title: ' + book.title + '\n Author: ' + book.author + '\n Genre: ' + book.genre + '\n Year: ' + book.year);
             });
-};
+        };
 
-}]);
+    }]);

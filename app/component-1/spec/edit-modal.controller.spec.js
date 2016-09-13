@@ -1,12 +1,15 @@
 describe('EditModalController tests', function() {
     'use strict';
 
-    var $scope, controller, modalInstance, $selectedBook = {
+    var $scope, controller, modalInstance, selectedBook = {
         title: 'title',
         author: 'author',
         genre: 'genre',
         year: '1000'
-    };
+    },
+        resolve = function() {
+            return selectedBook;
+        };
 
     beforeEach(module('app.component1'));
 
@@ -21,7 +24,7 @@ describe('EditModalController tests', function() {
                 controller = $controller('EditModalController', {
                     $scope: $scope,
                     $modalInstance: modalInstance,
-                    $selectedBook: $selectedBook
+                    $resolve: resolve
                 });
             }));
 
