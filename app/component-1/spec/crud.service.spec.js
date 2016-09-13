@@ -1,15 +1,15 @@
-describe('CrudService tests', function(){
+describe('CrudService tests', function() {
     'use strict';
 
-    var CrudService, $httpBackend, book;
+    var CrudService, $httpBackend, book = {};
 
     beforeEach(module('app'));
-    beforeEach(inject(function(_CrudService_, _$httpBackend_){
+    beforeEach(inject(function(_CrudService_, _$httpBackend_) {
         CrudService = _CrudService_;
         $httpBackend = _$httpBackend_;
     }));
 
-    it('should post data', function(){
+    it('should post data', function() {
         // given
         $httpBackend.whenPOST('/books').respond(true);
         // when
@@ -20,7 +20,7 @@ describe('CrudService tests', function(){
         $httpBackend.verifyNoOutstandingRequest();
     });
 
-    it('should put data', function(){
+    it('should put data', function() {
         // given
         $httpBackend.whenPUT('/books').respond(true);
         // when

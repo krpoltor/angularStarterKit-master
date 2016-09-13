@@ -21,7 +21,12 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(cellText).toEqual([pageObj.config.sampleITBookTitle, pageObj.config.sampleITBookAuthor, pageObj.config.sampleITBookGenre, pageObj.config.sampleITBookYear]);
+        expect(cellText).toEqual(
+            [pageObj.config.sampleITBookTitle,
+                pageObj.config.sampleITBookAuthor,
+                pageObj.config.sampleITBookGenre,
+                pageObj.config.sampleITBookYear
+            ]);
     });
 
     it('should open add modal', function() {
