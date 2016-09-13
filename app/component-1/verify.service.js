@@ -15,4 +15,4 @@ angular.module('app.component1')
             return (title === '' || author === '' || year === '');
         };
 
-});
+    });

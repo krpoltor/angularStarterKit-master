@@ -39,6 +39,6 @@ describe('MyFirstController tests', function() {
             // then
             expect(modal.open).toHaveBeenCalledWith(addBookModalConfig);
 
-          });
+        });
     });
 });

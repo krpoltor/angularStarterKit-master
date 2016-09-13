@@ -1,7 +1,7 @@
 describe('AddModalController tests', function() {
     'use strict';
 
-    var $scope, controller, modalInstance ;
+    var $scope, controller, modalInstance;
 
     beforeEach(module('app.component1'));
 
