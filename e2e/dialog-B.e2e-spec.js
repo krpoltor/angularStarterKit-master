@@ -32,7 +32,8 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(cellText).toEqual(['Code Complete', 'Steve McConnell', 'it', '1999']);
+        expect(cellText).
+        toEqual([pageObj.config.sampleITBookTitle, pageObj.config.sampleITBookAuthor, pageObj.config.sampleITBookGenre, pageObj.config.sampleITBookYear]);
 
     });
 
@@ -57,7 +58,9 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(cellText).toEqual(['Crime crime', 'Crime 42 crime never changes.', 'crime', '2081']);
+        expect(cellText)
+          .toEqual([pageObj.config.sampleCrimeBookTitle, pageObj.config.sampleCrimeBookAuthor, pageObj.config.sampleCrimeBookGenre, pageObj.config.sampleCrimeBookYear]);
+
 
     });
 
@@ -74,7 +77,8 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(cellText).toEqual(['Lorem ipsum', 'Erich ipsum, Ralph Lorem', 'test', '2001']);
+        expect(cellText)
+          .toEqual([pageObj.config.sampleTestookTitle, pageObj.config.sampleTestBookAuthor, pageObj.config.sampleTestBookGenre, pageObj.config.sampleTestBookYear]);
 
     });
 
@@ -91,7 +95,8 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(cellText).toEqual(['Bork bork - bork!', 'Bork Pork, Borke D. Gork.', 'bork', '2081']);
+        expect(cellText)
+        .toEqual([pageObj.config.sampleBorkookTitle, pageObj.config.sampleBorkBookAuthor, pageObj.config.sampleBorkBookGenre, pageObj.config.sampleBorkBookYear]);
 
     });
 
@@ -108,7 +113,8 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(cellText).toEqual(['Foo', 'Foo F. Foo.', 'foo', '1970']);
+        expect(cellText)
+        .toEqual([pageObj.config.sampleBorkookTitle, pageObj.config.sampleBorkBookAuthor, pageObj.config.sampleBorkBookGenre, pageObj.config.sampleBorkBookYear]);
 
     });
 
