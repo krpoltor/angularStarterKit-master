@@ -21,7 +21,7 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(cellText).toEqual(['Code Complete', 'Steve McConnell', 'it', '1999']);
+        expect(cellText).toEqual([pageObj.config.sampleITBookTitle, pageObj.config.sampleITBookAuthor, pageObj.config.sampleITBookGenre, pageObj.config.sampleITBookYear]);
     });
 
     it('should open add modal', function() {
@@ -82,10 +82,10 @@ describe('app tests', function() {
 
         browser.waitForAngular();
 
-        expect(bookTitle).toEqual('Code Complete');
-        expect(bookAuthor).toEqual('Steve McConnell');
-        expect(bookGenre).toEqual('it');
-        expect(bookYear).toEqual('1999');
+        expect(bookTitle).toEqual(pageObj.config.sampleITBookTitle);
+        expect(bookAuthor).toEqual(pageObj.config.sampleITBookAuthor);
+        expect(bookGenre).toEqual(pageObj.config.sampleITBookGenre);
+        expect(bookYear).toEqual(pageObj.config.sampleITBookYear);
 
     });
 
