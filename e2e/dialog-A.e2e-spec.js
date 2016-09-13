@@ -27,38 +27,34 @@ describe('app tests', function() {
     it('should open add modal', function() {
         pageObj.getHomePage();
 
-        element(by.id('addButton')).click();
+        pageObj.clickAddButton();
 
         browser.waitForAngular();
 
-        expect(element(by.className('modal-content')).isDisplayed()).toBe(true);
+        expect(pageObj.isModalOpen()).toBe(true);
 
     });
 
     it('should open add modal with empty fields', function() {
         pageObj.getHomePage();
 
-        element(by.id('addButton')).click();
-        var bookTitle = element(by.name('bookTitle')).getAttribute('value'),
-            bookAuthor = element(by.name('bookAuthor')).getAttribute('value'),
-            bookGenre = element(by.name('bookGenre')).getAttribute('value'),
-            bookYear = element(by.name('bookYear')).getAttribute('value');
+        pageObj.clickAddButton();
 
         browser.waitForAngular();
 
-        expect(bookTitle).toEqual('');
-        expect(bookAuthor).toEqual('');
-        expect(bookGenre).toEqual('');
-        expect(bookYear).toEqual('');
+        expect(pageObj.getBookTitle()).toEqual('');
+        expect(pageObj.getBookAuthor()).toEqual('');
+        expect(pageObj.getBookGenre()).toEqual('');
+        expect(pageObj.getBookYear()).toEqual('');
     });
 
 
     it('should open edit modal', function() {
         pageObj.getHomePage();
 
-        element.all(by.repeater('book in data.books')).first().click();
+        pageObj.clickFirstBook();
 
-        element(by.id('editButton')).click();
+        pageObj.clickEditButton();
 
         browser.waitForAngular();
 
@@ -69,23 +65,16 @@ describe('app tests', function() {
     it('should open edit modal with loaded data', function() {
         pageObj.getHomePage();
 
-        element.all(by.repeater('book in data.books')).first().click();
+        pageObj.clickFirstBook();
 
-        element(by.id('editButton')).click();
-
-        browser.waitForAngular();
-
-        var bookTitle = element(by.name('bookTitle')).getAttribute('value'),
-            bookAuthor = element(by.name('bookAuthor')).getAttribute('value'),
-            bookGenre = element(by.name('bookGenre')).getAttribute('value'),
-            bookYear = element(by.name('bookYear')).getAttribute('value');
+        pageObj.clickEditButton();
 
         browser.waitForAngular();
 
-        expect(bookTitle).toEqual(pageObj.config.sampleITBookTitle);
-        expect(bookAuthor).toEqual(pageObj.config.sampleITBookAuthor);
-        expect(bookGenre).toEqual(pageObj.config.sampleITBookGenre);
-        expect(bookYear).toEqual(pageObj.config.sampleITBookYear);
+        expect(pageObj.getBookTitle()).toEqual(pageObj.config.sampleITBookTitle);
+        expect(pageObj.getBookAuthor()).toEqual(pageObj.config.sampleITBookAuthor);
+        expect(pageObj.getBookGenre()).toEqual(pageObj.config.sampleITBookGenre);
+        expect(pageObj.getBookYear()).toEqual(pageObj.config.sampleITBookYear);
 
     });
 

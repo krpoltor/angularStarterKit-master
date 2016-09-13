@@ -32,7 +32,7 @@ var config = {
 };
 
 function DialogB_PO(){
-
+  this.config = config
 }
 
 

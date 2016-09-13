@@ -6,15 +6,6 @@ describe('MyFirstController tests', function() {
             templateUrl: '/component-1/modal-dialog/modal-dialog.tpl.html',
             controller: 'AddModalController',
             size: 'lg'
-        },
-        editBookModalConfig = {
-            templateUrl: '/component-1/modal-dialog/modal-dialog.tpl.html',
-            controller: 'EditModalController',
-            size: 'lg',
-            resolve: {
-                selectedBook: function() {
-                }
-            }
         };
 
     beforeEach(module('app.component1'));
@@ -47,15 +38,7 @@ describe('MyFirstController tests', function() {
             $scope.add();
             // then
             expect(modal.open).toHaveBeenCalledWith(addBookModalConfig);
-        });
 
-        // it('should open modal when Edit button clicked', function() {
-        //     // given
-        //     // when
-        //     $scope.edit();
-        //     // then
-        //     expect(modal.open).toHaveBeenCalledWith(editBookModalConfig);
-        // });
-
+          });
     });
 });

@@ -78,7 +78,7 @@ describe('app tests', function() {
         browser.waitForAngular();
 
         expect(cellText)
-          .toEqual([pageObj.config.sampleTestookTitle, pageObj.config.sampleTestBookAuthor, pageObj.config.sampleTestBookGenre, pageObj.config.sampleTestBookYear]);
+          .toEqual([pageObj.config.sampleTestBookTitle, pageObj.config.sampleTestBookAuthor, pageObj.config.sampleTestBookGenre, pageObj.config.sampleTestBookYear]);
 
     });
 
@@ -96,7 +96,7 @@ describe('app tests', function() {
         browser.waitForAngular();
 
         expect(cellText)
-        .toEqual([pageObj.config.sampleBorkookTitle, pageObj.config.sampleBorkBookAuthor, pageObj.config.sampleBorkBookGenre, pageObj.config.sampleBorkBookYear]);
+        .toEqual([pageObj.config.sampleBorkBookTitle, pageObj.config.sampleBorkBookAuthor, pageObj.config.sampleBorkBookGenre, pageObj.config.sampleBorkBookYear]);
 
     });
 
@@ -114,7 +114,7 @@ describe('app tests', function() {
         browser.waitForAngular();
 
         expect(cellText)
-        .toEqual([pageObj.config.sampleBorkookTitle, pageObj.config.sampleBorkBookAuthor, pageObj.config.sampleBorkBookGenre, pageObj.config.sampleBorkBookYear]);
+        .toEqual([pageObj.config.sampleFooBookTitle, pageObj.config.sampleFooBookAuthor, pageObj.config.sampleFooBookGenre, pageObj.config.sampleFooBookYear]);
 
     });
 
